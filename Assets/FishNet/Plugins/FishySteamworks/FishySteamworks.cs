@@ -1,4 +1,4 @@
-#if !FISHYSTEAMWORKS
+
 using FishNet.Managing;
 using FishNet.Managing.Logging;
 using FishNet.Transporting;
@@ -549,4 +549,3 @@ namespace FishySteamworks
 
     }
 }
-#endif // !DISABLESTEAMWORKS

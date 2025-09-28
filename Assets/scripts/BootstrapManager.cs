@@ -8,7 +8,7 @@ public class BootstrapManager : MonoBehaviour
     private static BootstrapManager instance;
     private void Awake() => instance = this;
  
-    [SerializeField] private string menuName = "MenuSceneSteam";
+    [SerializeField] private string menuName = "MainMenu";
     [SerializeField] private NetworkManager _networkManager;
     [SerializeField] private FishySteamworks.FishySteamworks _fishySteamworks;
  
