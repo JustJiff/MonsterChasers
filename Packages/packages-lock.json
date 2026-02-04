@@ -1,11 +1,11 @@
 {
   "dependencies": {
     "com.heathen.steamworksfoundation": {
-      "version": "https://github.com/heathen-engineering/Toolkit-for-Steamworks-Foundation.git?path=Unity/com.heathen.steamworksfoundation",
+      "version": "https://github.com/heathen-engineering/Toolkit-for-Steamworks-Foundation.git?path=Legacy/Unity/com.heathen.steamworksfoundation",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "d637d20d5abe18d751e774215392273c4703372d"
+      "hash": "51230bc00292671c66c7c1278f0084e10de4e7f7"
     },
     "com.heathen.systemcore": {
       "version": "https://github.com/heathen-engineering/SystemCore.git?path=/com.heathen.systemcore",
