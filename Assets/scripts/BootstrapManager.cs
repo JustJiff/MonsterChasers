@@ -38,7 +38,6 @@ public class BootstrapManager : MonoBehaviour
  
     private void OnLobbyCreated(LobbyCreated_t callback)
     {
-        //Debug.Log("Starting lobby creation: " + callback.m_eResult.ToString());
         if (callback.m_eResult != EResult.k_EResultOK)
             return;
  
