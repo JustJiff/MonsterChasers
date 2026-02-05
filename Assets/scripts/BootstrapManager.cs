@@ -20,6 +20,7 @@ public class BootstrapManager : MonoBehaviour
  
     private void Start()
     {
+        Debug.Log("Bootstrap Start()");
         LobbyCreated = Callback<LobbyCreated_t>.Create(OnLobbyCreated);
         JoinRequest = Callback<GameLobbyJoinRequested_t>.Create(OnJoinRequest);
         LobbyEntered = Callback<LobbyEnter_t>.Create(OnLobbyEntered);
