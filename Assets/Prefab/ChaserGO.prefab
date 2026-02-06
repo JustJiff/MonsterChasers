@@ -59,6 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa8aba23718d87342937eac2168cedbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  runners: []
 --- !u!1 &6495443124540772054
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,6 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa8aba23718d87342937eac2168cedbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  runners: []
 --- !u!1 &6495443126414834508
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,6 +390,7 @@ MonoBehaviour:
   <PredictedSpawn>k__BackingField: {fileID: 0}
   <PredictedOwner>k__BackingField: {fileID: 0}
   NetworkBehaviours:
+  - {fileID: 6495443126464438405}
   - {fileID: 4125095543456531830}
   InitializedParentNetworkBehaviour: {fileID: 0}
   InitializedNestedNetworkObjects: []
@@ -413,7 +416,7 @@ MonoBehaviour:
   _spectatorInterpolation: 2
   _enableTeleport: 0
   _teleportThreshold: 1
-  <PrefabId>k__BackingField: 0
+  <PrefabId>k__BackingField: 1
   <SpawnableCollectionId>k__BackingField: 0
   <AssetPathHash>k__BackingField: 2937398966128001290
   <SceneId>k__BackingField: 0
@@ -450,6 +453,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd25c0714e56c0f45a0ad8264eaa6a88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentIndexCache: 0
+  _addedNetworkObject: {fileID: 6495443126464438410}
+  _networkObjectCache: {fileID: 6495443126464438410}
   moveSpeed: 10
   floorDrag: 0.5
   playerHeight: 2
@@ -469,6 +475,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a6a39c46bf52104ba8efe3100bce3f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 0
+  _componentIndexCache: 1
   _addedNetworkObject: {fileID: 6495443126464438410}
   _networkObjectCache: {fileID: 6495443126464438410}
