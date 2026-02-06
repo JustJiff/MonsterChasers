@@ -16,26 +16,19 @@ public class LobbyManagerUI : MonoBehaviour
     void Awake()
     {
         Instance = this;
-    }
-
-    public void StartGameButton()
-    {
-        if (!InstanceFinder.IsServerStarted) return;
-
-        FindObjectOfType<RoundTimer>().StartRound();
-    }
-
-
+    } 
     public void OnClickMonster()
     {
         var me = FindLocalPlayerData();
         if (me != null) me.SetTeamServerRpc(Team.Runner);
+        Debug.Log("Wybrano Monstera()");
     }
 
     public void OnClickChaser()
     {
         var me = FindLocalPlayerData();
         if (me != null) me.SetTeamServerRpc(Team.Chaser);
+        Debug.Log("Wybrano Chasera()");
     }
 
     public void RefreshLists()
