@@ -9,8 +9,8 @@ public class PlayerData : NetworkBehaviour
 
     public override void OnStartClient()
     {
-        base.OnStartServer();
-        PlayerName.Value = $"Player_{Owner.ClientId}";
+        base.OnStartClient();
+
         SelectedTeam.OnChange += OnTeamChanged;
         PlayerName.OnChange += OnNameChanged;
     }

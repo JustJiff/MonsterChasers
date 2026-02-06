@@ -15,6 +15,7 @@ public class Catcher : MonoBehaviour
         if(other.tag == "Runner")
         {
             Destroy(other.gameObject);
+            
         }
         runners = GameObject.FindGameObjectsWithTag("Runner");
             Debug.Log(runners.Length);
@@ -23,5 +24,9 @@ public class Catcher : MonoBehaviour
                 Debug.Log(runners.Length);
                 OnGameEnd?.Invoke();
             }
+
+        
     }
+
+   
 }
