@@ -47,19 +47,18 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
+        rb.useGravity = !grounded;  
         MovePlayer();
     }
 
     private void MyInput()
     {
-        Debug.Log("Moving");
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
     }
 
     private void MovePlayer()
     {
-        Debug.Log("Moving");
         movementDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
         rb.AddForce(movementDirection.normalized * moveSpeed, ForceMode.Force);
@@ -67,7 +66,7 @@ public class Movement : MonoBehaviour
 
     private void SpeedControl()
     {
-        Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.y);
+        Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
         if(flatVel.magnitude > moveSpeed)
         {
