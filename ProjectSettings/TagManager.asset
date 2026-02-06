@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Chaser
+  - Runner
+  - ChaserSpawn
+  - RunnerSpawn
   layers:
   - Default
   - TransparentFX

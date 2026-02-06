@@ -54,6 +54,7 @@ MonoBehaviour:
   <PredictedOwner>k__BackingField: {fileID: 0}
   NetworkBehaviours:
   - {fileID: -1374617078407391332}
+  - {fileID: 2708655375755137796}
   InitializedParentNetworkBehaviour: {fileID: 0}
   InitializedNestedNetworkObjects: []
   RuntimeParentNetworkBehaviour: {fileID: 0}
@@ -114,6 +115,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5299250da5c836343a3e8a40e4d14fd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _componentIndexCache: 255
+  _componentIndexCache: 1
   _addedNetworkObject: {fileID: 7471068603935438825}
-  _networkObjectCache: {fileID: 0}
+  _networkObjectCache: {fileID: 7471068603935438825}

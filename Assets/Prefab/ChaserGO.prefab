@@ -303,7 +303,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6495443126464438415}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 26b716c41e9b56b4baafaf13a523ba2e, type: 3}
   m_Name: 
@@ -345,8 +345,8 @@ MonoBehaviour:
   <AssetPathHash>k__BackingField: 2937398966128001290
   <SceneId>k__BackingField: 0
   SerializedTransformProperties:
-    Position: {x: 0, y: 0.51, z: 0}
-    Rotation: {x: -0, y: -0, z: -0, w: 1}
+    Position: {x: -5.431171, y: 0.315, z: 1.8958609}
+    Rotation: {x: 0, y: 0, z: 0, w: 1}
     Scale: {x: 1, y: 1, z: 1}
     IsValid: 1
 --- !u!54 &6495443126464438411

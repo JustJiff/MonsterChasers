@@ -59,15 +59,7 @@ public class LobbyManagerUI : MonoBehaviour
         for (int i = t.childCount - 1; i >= 0; i--)
             Destroy(t.GetChild(i).gameObject);
     }
-    public void OnClickRunner()
-    {
-        var me = FindLocalPlayerData();
-        if (me != null)
-        {
-            me.SetTeamServerRpc(Team.Runner);
-            RefreshLists();
-        }
-    }
+   
     IEnumerator Start()
     {
         yield return new WaitForSeconds(0.5f);

@@ -11,11 +11,20 @@ public class PlayerData : NetworkBehaviour
     {
         base.OnStartClient();
 
-        if (IsOwner)
-        {
-            SetNameServerRpc("Player_" + Random.Range(1000, 9999));
-        }
+        SelectedTeam.OnChange += OnTeamChanged;
+        PlayerName.OnChange += OnNameChanged;
     }
+
+    void OnTeamChanged(Team oldValue, Team newValue, bool asServer)
+    {
+        LobbyManagerUI.Instance?.RefreshLists();
+    }
+
+    void OnNameChanged(string oldValue, string newValue, bool asServer)
+    {
+        LobbyManagerUI.Instance?.RefreshLists();
+    }
+
 
     [ServerRpc]
     public void SetTeamServerRpc(Team team)
