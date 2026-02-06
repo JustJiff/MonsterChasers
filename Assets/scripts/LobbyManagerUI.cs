@@ -1,6 +1,7 @@
 using System.Collections;
-using UnityEngine;
+using FishNet;
 using TMPro;
+using UnityEngine;
 
 public class LobbyManagerUI : MonoBehaviour
 {
@@ -16,6 +17,14 @@ public class LobbyManagerUI : MonoBehaviour
     {
         Instance = this;
     }
+
+    public void StartGameButton()
+    {
+        if (!InstanceFinder.IsServerStarted) return;
+
+        FindObjectOfType<RoundTimer>().StartRound();
+    }
+
 
     public void OnClickMonster()
     {
