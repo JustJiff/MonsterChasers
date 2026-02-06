@@ -4,8 +4,9 @@ using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using FishNet.Object;
 
-public class Movement : MonoBehaviour
+public class Movement : NetworkBehaviour
 {
     [Header("Movement")]
     public float moveSpeed;
@@ -33,6 +34,7 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+        if(!IsOwner)
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, floor);
         MyInput();
         SpeedControl();
@@ -47,6 +49,7 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if(!IsOwner)
         rb.useGravity = !grounded;  
         MovePlayer();
     }
