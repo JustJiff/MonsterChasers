@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 819715965885905225}
   - component: {fileID: 7471068603935438825}
   - component: {fileID: -1374617078407391332}
+  - component: {fileID: 2708655375755137796}
   m_Layer: 0
   m_Name: Client
   m_TagString: Untagged
@@ -101,3 +102,18 @@ MonoBehaviour:
   _componentIndexCache: 0
   _addedNetworkObject: {fileID: 7471068603935438825}
   _networkObjectCache: {fileID: 7471068603935438825}
+--- !u!114 &2708655375755137796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4505109228204886211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5299250da5c836343a3e8a40e4d14fd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 7471068603935438825}
+  _networkObjectCache: {fileID: 0}
