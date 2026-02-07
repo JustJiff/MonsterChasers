@@ -1,41 +1,42 @@
-﻿using UnityEngine;
 using FishNet.Object;
 using FishNet.Object.Synchronizing;
-
-public enum Team
-{
-    Monsters,
-    Catchers
-}
+using UnityEngine;
 
 public class PlayerData : NetworkBehaviour
 {
-    public readonly SyncVar<Team> TeamSync = new SyncVar<Team>();
+    public readonly SyncVar<Team> SelectedTeam = new SyncVar<Team>(Team.None);
+    public readonly SyncVar<string> PlayerName = new SyncVar<string>("Player");
 
     public override void OnStartClient()
     {
-        base.OnStartClient();
-        TeamSync.OnChange += OnTeamChanged;
-    }
-
-    public override void OnStartServer()
-    {
         base.OnStartServer();
-
-        // TEST: auto-assign team
-        TeamSync.Value = Team.Monsters;
-        Debug.Log($"[SERVER TEST] Auto team set for {Owner.ClientId}");
+        PlayerName.Value = $"Player_{Owner.ClientId}";
+        SelectedTeam.OnChange += OnTeamChanged;
+        PlayerName.OnChange += OnNameChanged;
     }
+
+    void OnTeamChanged(Team oldValue, Team newValue, bool asServer)
+    {
+        LobbyManagerUI.Instance?.RefreshLists();
+    }
+
+    void OnNameChanged(string oldValue, string newValue, bool asServer)
+    {
+        LobbyManagerUI.Instance?.RefreshLists();
+    }
+
 
     [ServerRpc]
     public void SetTeamServerRpc(Team team)
     {
-        TeamSync.Value = team;
-        Debug.Log($"[SERVER] Team set to {team} for {Owner.ClientId}");
+        SelectedTeam.Value = team;
     }
 
-    private void OnTeamChanged(Team oldTeam, Team newTeam, bool asServer)
+    [ServerRpc]
+    public void SetNameServerRpc(string name)
     {
-        Debug.Log($"Team changed: {oldTeam} -> {newTeam}");
+        PlayerName.Value = name;
+        Debug.Log("Ustawiam nick: " + name);
     }
+
 }

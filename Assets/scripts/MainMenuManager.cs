@@ -19,13 +19,12 @@ public class MainMenuManager : MonoBehaviour
     {
         OpenMainMenu();
     }
-
-    public static void CreateLobby()
+ 
+    public void CreateLobby()
     {
-        SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypeFriendsOnly, 4);
+        BootstrapManager.CreateLobby();
     }
-
-
+ 
     public void OpenMainMenu()
     {
         CloseAllScreens();
@@ -67,6 +66,6 @@ public class MainMenuManager : MonoBehaviour
     public void StartGame()
     {
         string[] scenesToClose = new string[] { "MainMenu" };
-       // BootstrapNetworkManager.ChangeNetworkScene("SampleScene", scenesToClose);
+        BootstrapNetworkManager.ChangeNetworkScene("SampleScene", scenesToClose);
     }
 }

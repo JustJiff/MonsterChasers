@@ -168,6 +168,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80332ab6ae8204dba9c92f362ea111bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentIndexCache: 255
+  _addedNetworkObject: {fileID: 1517520248}
+  _networkObjectCache: {fileID: 0}
 --- !u!114 &1517520248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -348,7 +351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2c95dfde7d73b54dbbdc23155d35d36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _refreshDefaultPrefabs: 1
+  _refreshDefaultPrefabs: 0
   _runInBackground: 1
   _dontDestroyOnLoad: 1
   _objectPool: {fileID: 0}
@@ -382,7 +385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 211a9f6ec51ddc14f908f5acc0cd0423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerPrefab: {fileID: 8064648867644006631, guid: 091721e1ccaf38d4085d7cdf4b516fb7,
+  _playerPrefab: {fileID: 7471068603935438825, guid: 971d1c3c973e54948b0ef6b23b3a32f3,
     type: 3}
   _addToDefaultScene: 1
   Spawns: []

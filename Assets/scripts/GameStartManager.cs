@@ -1,37 +1,55 @@
+using FishNet;
 using FishNet.Object;
 using UnityEngine;
 
 public class GameStartManager : NetworkBehaviour
 {
-    [Header("Character Prefabs")]
-    [SerializeField] private NetworkObject runnerPrefab;
-    [SerializeField] private NetworkObject chaserPrefab;
+    public NetworkObject runnerPrefab;
+    public NetworkObject chaserPrefab;
 
-    public void StartGame()
+    private Transform[] runnerSpawns;
+    private Transform[] chaserSpawns;
+
+    private int runnerIndex = 0;
+    private int chaserIndex = 0;
+
+    public override void OnStartServer()
     {
-        Debug.Log("START GAME BUTTON CLICKED");
-        StartGameServerRpc();
+        runnerSpawns = GetSpawnsWithTag("RunnerSpawn");
+        chaserSpawns = GetSpawnsWithTag("ChaserSpawn");
+    }
+
+    Transform[] GetSpawnsWithTag(string tag)
+    {
+        GameObject[] gos = GameObject.FindGameObjectsWithTag(tag);
+        Transform[] result = new Transform[gos.Length];
+        for (int i = 0; i < gos.Length; i++)
+            result[i] = gos[i].transform;
+        return result;
     }
 
     [ServerRpc(RequireOwnership = false)]
-    private void StartGameServerRpc()
+    public void StartGameServerRpc()
     {
-        Debug.Log("[SERVER] StartGameServerRpc");
-
-        PlayerData[] players = FindObjectsOfType<PlayerData>();
-        Debug.Log($"[SERVER] Players found: {players.Length}");
-
-        foreach (PlayerData player in players)
+        foreach (var player in FindObjectsOfType<PlayerData>())
         {
             NetworkObject prefab =
-                player.TeamSync.Value == Team.Monsters
-                ? runnerPrefab
-                : chaserPrefab;
+                player.SelectedTeam.Value == Team.Runner
+                    ? runnerPrefab
+                    : chaserPrefab;
 
-            NetworkObject character = Instantiate(prefab);
-            ServerManager.Spawn(character, player.Owner);
+            if (prefab == null || player.Owner == null)
+                continue;
 
-            Debug.Log($"[SERVER] Spawned {player.TeamSync.Value} for {player.Owner.ClientId}");
+            Transform spawn =
+                player.SelectedTeam.Value == Team.Runner
+                    ? runnerSpawns[runnerIndex++ % runnerSpawns.Length]
+                    : chaserSpawns[chaserIndex++ % chaserSpawns.Length];
+
+            NetworkObject character =
+                Instantiate(prefab, spawn.position, spawn.rotation);
+
+            InstanceFinder.ServerManager.Spawn(character, player.Owner);
         }
     }
 }
