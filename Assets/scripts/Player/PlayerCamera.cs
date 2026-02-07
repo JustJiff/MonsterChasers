@@ -1,9 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
+using FishNet.Object;
 using UnityEngine;
 
-public class PlayerCamera : MonoBehaviour
+public class PlayerCamera : NetworkBehaviour
 {
+   
+
+    public override void OnStartClient()
+    {
+        if (!IsOwner)
+            gameObject.SetActive(false);
+    }
+
     public float sensX;
     public float sensY;
 
@@ -11,6 +18,7 @@ public class PlayerCamera : MonoBehaviour
 
     float xRotation;
     float yRotation;
+
 
     private void Start()
     {

@@ -1859,7 +1859,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1264696739}
         m_TargetAssemblyTypeName: LobbyManagerUI, Assembly-CSharp
-        m_MethodName: OnClickChaser
+        m_MethodName: ChooseTeamCatchers
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3310,11 +3310,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dc3ce45d106bf6409a0ce646d358046, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runnerContent: {fileID: 167909280}
-  chaserContent: {fileID: 1831811385}
-  nameLabelPrefab: {fileID: 7175643136325916740, guid: 11427a5d11ac4ba48b5244e1ec61644d,
-    type: 3}
-  startGameButton: {fileID: 1031209983}
 --- !u!1 &1349486122
 GameObject:
   m_ObjectHideFlags: 0
@@ -3535,7 +3530,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1264696739}
         m_TargetAssemblyTypeName: LobbyManagerUI, Assembly-CSharp
-        m_MethodName: OnClickMonster
+        m_MethodName: ChooseTeamMonsters
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

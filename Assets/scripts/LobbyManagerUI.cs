@@ -1,77 +1,40 @@
-using System.Collections;
-using FishNet;
-using TMPro;
 using UnityEngine;
 
 public class LobbyManagerUI : MonoBehaviour
 {
-    public static LobbyManagerUI Instance;
+    private PlayerData localPlayer;
 
-    [Header("Team Lists")]
-    public Transform runnerContent;
-    public Transform chaserContent;
-    public TMP_Text nameLabelPrefab;
-    public GameObject startGameButton;
-    
-    void Awake()
+    private void Start()
     {
-        Instance = this;
-    } 
-    public void OnClickMonster()
-    {
-        var me = FindLocalPlayerData();
-        if (me != null) me.SetTeamServerRpc(Team.Runner);
-        Debug.Log("Wybrano Monstera()");
+        localPlayer = FindLocalPlayer();
     }
 
-    public void OnClickChaser()
+    private PlayerData FindLocalPlayer()
     {
-        var me = FindLocalPlayerData();
-        if (me != null) me.SetTeamServerRpc(Team.Chaser);
-        Debug.Log("Wybrano Chasera()");
-    }
-
-    public void RefreshLists()
-    {
-        ClearChildren(runnerContent);
-        ClearChildren(chaserContent);
-
-        var all = FindObjectsOfType<PlayerData>();
-
-        foreach (var p in all)
+        PlayerData[] players = FindObjectsOfType<PlayerData>();
+        foreach (var p in players)
         {
-            if (p.SelectedTeam.Value == Team.None) continue;
-
-            Transform parent = p.SelectedTeam.Value == Team.Runner ? runnerContent : chaserContent;
-            var label = Instantiate(nameLabelPrefab, parent);
-            label.text = p.PlayerName.Value;
+            if (p.IsOwner)
+                return p;
         }
-    }
-
-    PlayerData FindLocalPlayerData()
-    {
-        foreach (var p in FindObjectsOfType<PlayerData>())
-            if (p.IsOwner) return p;
-
         return null;
     }
 
-    void ClearChildren(Transform t)
+    public void ChooseTeamMonsters()
     {
-        for (int i = t.childCount - 1; i >= 0; i--)
-            Destroy(t.GetChild(i).gameObject);
-    }
-   
-    IEnumerator Start()
-    {
-        yield return new WaitForSeconds(0.5f);
+        Debug.Log("MONSTERS BUTTON CLICKED");
+        if (localPlayer == null) return;
 
-        bool isHost = FishNet.InstanceFinder.ServerManager != null &&
-                      FishNet.InstanceFinder.ServerManager.Started;
-
-        startGameButton.SetActive(isHost);
-
-        Debug.Log("Czy host: " + isHost);
+        localPlayer.SetTeamServerRpc(Team.Monsters);
+        Debug.Log("Chose Monsters");
     }
 
+    public void ChooseTeamCatchers()
+    {
+        Debug.Log("START GAME BUTTON CLICKED");
+        if (localPlayer == null) return;
+
+        localPlayer.SetTeamServerRpc(Team.Catchers);
+        Debug.Log("Chose Catchers");
+    }
 }

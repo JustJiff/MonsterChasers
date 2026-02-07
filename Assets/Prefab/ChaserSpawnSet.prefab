@@ -200,6 +200,7 @@ GameObject:
   - component: {fileID: 404763597192462335}
   - component: {fileID: 404763597192462321}
   - component: {fileID: 7387374302095874562}
+  - component: {fileID: 1643190939459234462}
   m_Layer: 0
   m_Name: ChaserGO
   m_TagString: Chaser
@@ -256,8 +257,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _componentIndexCache: 0
-  _addedNetworkObject: {fileID: 6391898545117194266}
-  _networkObjectCache: {fileID: 6391898545117194266}
+  _addedNetworkObject: {fileID: 1643190939459234462}
+  _networkObjectCache: {fileID: 1643190939459234462}
   moveSpeed: 10
   floorDrag: 0.5
   playerHeight: 2
@@ -278,8 +279,62 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _componentIndexCache: 1
-  _addedNetworkObject: {fileID: 6391898545117194266}
-  _networkObjectCache: {fileID: 6391898545117194266}
+  _addedNetworkObject: {fileID: 1643190939459234462}
+  _networkObjectCache: {fileID: 1643190939459234462}
+--- !u!114 &1643190939459234462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 404763597192462331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26b716c41e9b56b4baafaf13a523ba2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <IsNested>k__BackingField: 1
+  WasActiveDuringEdit: 1
+  WasActiveDuringEdit_Set1: 1
+  <ComponentIndex>k__BackingField: 1
+  <PredictedSpawn>k__BackingField: {fileID: 0}
+  <PredictedOwner>k__BackingField: {fileID: 0}
+  NetworkBehaviours:
+  - {fileID: 404763597192462321}
+  - {fileID: 7387374302095874562}
+  InitializedParentNetworkBehaviour: {fileID: -8803932777416621470}
+  InitializedNestedNetworkObjects: []
+  RuntimeParentNetworkBehaviour: {fileID: 0}
+  RuntimeChildNetworkBehaviours: []
+  _isNetworked: 1
+  _isSpawnable: 1
+  _isGlobal: 0
+  _initializeOrder: 0
+  _preventDespawnOnDisconnect: 0
+  _defaultDespawnType: 0
+  NetworkObserver: {fileID: 0}
+  _enablePrediction: 0
+  _predictionType: 0
+  _graphicalObject: {fileID: 0}
+  _detachGraphicalObject: 0
+  _enableStateForwarding: 1
+  _networkTransform: {fileID: 0}
+  _ownerInterpolation: 1
+  _ownerSmoothedProperties: 255
+  _adaptiveInterpolation: 3
+  _spectatorSmoothedProperties: 255
+  _spectatorInterpolation: 2
+  _enableTeleport: 0
+  _teleportThreshold: 1
+  <PrefabId>k__BackingField: 65535
+  <SpawnableCollectionId>k__BackingField: 0
+  <AssetPathHash>k__BackingField: 0
+  <SceneId>k__BackingField: 0
+  SerializedTransformProperties:
+    Position: {x: -207.1578, y: 57.22963, z: 70.04948}
+    Rotation: {x: -0, y: -0, z: -0, w: 1}
+    Scale: {x: 1, y: 1, z: 1}
+    IsValid: 1
 --- !u!1 &404763597243507768
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,7 +427,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7323905363993100432}
-  - component: {fileID: 6391898545117194266}
+  - component: {fileID: -1660996717002219874}
+  - component: {fileID: -8803932777416621470}
   m_Layer: 0
   m_Name: ChaserSpawnSet
   m_TagString: ChaserSpawn
@@ -397,7 +453,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6391898545117194266
+--- !u!114 &-1660996717002219874
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -416,10 +472,11 @@ MonoBehaviour:
   <PredictedSpawn>k__BackingField: {fileID: 0}
   <PredictedOwner>k__BackingField: {fileID: 0}
   NetworkBehaviours:
-  - {fileID: 404763597192462321}
-  - {fileID: 7387374302095874562}
+  - {fileID: -8803932777416621470}
+  - {fileID: 6897950313817911058}
   InitializedParentNetworkBehaviour: {fileID: 0}
-  InitializedNestedNetworkObjects: []
+  InitializedNestedNetworkObjects:
+  - {fileID: 1643190939459234462}
   RuntimeParentNetworkBehaviour: {fileID: 0}
   RuntimeChildNetworkBehaviours: []
   _isNetworked: 1
@@ -442,7 +499,7 @@ MonoBehaviour:
   _spectatorInterpolation: 2
   _enableTeleport: 0
   _teleportThreshold: 1
-  <PrefabId>k__BackingField: 0
+  <PrefabId>k__BackingField: 1
   <SpawnableCollectionId>k__BackingField: 0
   <AssetPathHash>k__BackingField: 1843114722272511428
   <SceneId>k__BackingField: 0
@@ -451,6 +508,21 @@ MonoBehaviour:
     Rotation: {x: 0, y: 0, z: 0, w: 1}
     Scale: {x: 1, y: 1, z: 1}
     IsValid: 1
+--- !u!114 &-8803932777416621470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4199402483899634140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a6a39c46bf52104ba8efe3100bce3f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _componentIndexCache: 0
+  _addedNetworkObject: {fileID: -1660996717002219874}
+  _networkObjectCache: {fileID: -1660996717002219874}
 --- !u!1 &6897950313029432971
 GameObject:
   m_ObjectHideFlags: 0
@@ -628,6 +700,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8373a4e11d79ade42ba414c43c191ff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _componentIndexCache: 1
+  _addedNetworkObject: {fileID: -1660996717002219874}
+  _networkObjectCache: {fileID: -1660996717002219874}
   sensX: 800
   sensY: 800
   orientation: {fileID: 404763596409639331}
